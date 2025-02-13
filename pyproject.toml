@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytest_playwright_video"
+version = "0.0.0"
+description = "Demo project for demonstrating how to attach a video to Allure Report with PyTest and Playwright."
+readme = "README.md"
+requires-python = ">=3.11.5"
+classifiers = [
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11.5"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["test"]
+addopts = [
+    "--alluredir", "allure-results",
+    "--clean-alluredir",
+    "--video", "retain-on-failure",
+]
