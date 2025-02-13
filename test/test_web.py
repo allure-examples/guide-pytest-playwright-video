@@ -1,11 +1,6 @@
 import allure
-
-from allure_commons.types import Severity
 from playwright.sync_api import expect
 
-
-@allure.severity(severity_level=Severity.CRITICAL)
-@allure.feature("Software testing wiki page")
 @allure.title("Page should have a word in the title")
 def test_main_page_title_should_have_word_in_title(page):
     with allure.step("Open the main page"):
@@ -14,9 +9,6 @@ def test_main_page_title_should_have_word_in_title(page):
     with allure.step("Look for a phrase in the title"):
         expect(page).to_have_title("Bad title")
 
-
-@allure.severity(severity_level=Severity.CRITICAL)
-@allure.feature("Software testing wiki page")
 @allure.title("Page should have a text entry element")
 def test_main_page_should_have_text_entry(page):
     with allure.step("Open the main page"):
