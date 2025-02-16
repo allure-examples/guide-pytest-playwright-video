@@ -2,6 +2,7 @@ import pathlib
 import allure
 import pytest
 
+PLAYWRIGHT_VIDEO_EXTENSION = ".webm"
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_teardown(item, nextitem):
@@ -14,7 +15,7 @@ def pytest_runtest_teardown(item, nextitem):
         
         if artifacts_dir_path.is_dir():            
             for file in artifacts_dir_path.iterdir():
-                if file.is_file() and file.suffix == ".webm":
+                if file.is_file() and file.suffix == PLAYWRIGHT_VIDEO_EXTENSION:
                     allure.attach.file(
                         file,
                         name=file.name,
